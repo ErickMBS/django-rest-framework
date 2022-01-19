@@ -1,5 +1,5 @@
 from django.contrib import admin
-from escola.models import Aluno, Curso
+from escola.models import Aluno, Curso, Matricula
 
 
 class Alunos(admin.ModelAdmin):
@@ -27,7 +27,13 @@ class Cursos(admin.ModelAdmin):
     list_filter = ('nivel',)
 
 
+class Matriculas(admin.ModelAdmin):
+    list_display = ('id', 'aluno', 'curso', 'periodo')
+    list_filter = ('periodo',)
+
+
 admin.site.register(Aluno, Alunos)
 admin.site.register(Curso, Cursos)
+admin.site.register(Matricula, Matriculas)
 
 
